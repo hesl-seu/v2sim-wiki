@@ -1,6 +1,6 @@
 # V2Sim-UX
 
-本页面适用于V2Sim-UX：考虑车网互动(V2G)城市**中观**交通网与配电网耦联合仿真平台。如需使用V2Sim，请访问[此处](v2sim/)。([代码](https://github.com/hesl-seu/v2sim/tree/uxsim))
+本页面适用于V2Sim-UX：考虑车网互动(V2G)城市**中观**交通网与配电网耦联合仿真平台。如需使用V2Sim，请访问[此处](/#/zh_hans/v2sim/)。([代码](https://github.com/hesl-seu/v2sim/tree/uxsim))
 
 ## 引用V2Sim-UX
 如果您正在使用V2Sim-UX，请引用我们的文章：V2Sim: An Open-Source Microscopic V2G Simulation Platform in Urban Power and Transportation Network
