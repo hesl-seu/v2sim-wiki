@@ -3,4 +3,4 @@
 
 + Index
     + [Home](v2simux/)
-    + [Quick Start](v2simux/quick)
+    + [Quick Start](v2simux/quick-start)

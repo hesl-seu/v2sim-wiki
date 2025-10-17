@@ -3,7 +3,7 @@
 
 + Index
     + [Home](v2sim/)
-    + [Quick Start](v2sim/quick)
+    + [Quick Start](v2sim/quick-start)
     + [Nomenclature](v2sim/nom)
 + Platform Usage
     + [Installation](v2sim/usage/inst)

@@ -3,7 +3,7 @@
 
 + 索引
     + [主页](v2sim/)
-    + [快速开始](v2sim/quick)
+    + [快速开始](v2sim/quick-start)
     + [符号说明](v2sim/nom)
 + 使用方法
     + [安装](v2sim/usage/inst)
