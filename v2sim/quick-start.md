@@ -35,7 +35,6 @@ Copy your case generated with OSMWebWizard to a proper place. Then run `gui_main
 ```bash
 python gui_main.py
 ```
-* **Notice:** Double click to open this file is **NOT** recommended since many users have reported it doesn't work as expected.
 
 Click the `Project` menu and open the folder you have created. You will see something like this:
 ![alt text](/imgs/3.png)

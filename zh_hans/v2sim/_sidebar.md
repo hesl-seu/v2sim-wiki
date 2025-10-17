@@ -18,7 +18,6 @@
     + [配电网](zh_hans/v2sim/format/pdn)
 + 工具
     + [gui_viewer](zh_hans/v2sim/tools/gui_viewer)
-    + [cmd_plot](zh_hans/v2sim/tools/cmd_plot)
     + [cmd_advplot](zh_hans/v2sim/tools/cmd_advplot)
     + [gen_trip](zh_hans/v2sim/tools/gen_trip)
     + [gen_cs](zh_hans/v2sim/tools/gen_cs)

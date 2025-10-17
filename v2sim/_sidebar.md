@@ -18,7 +18,6 @@
     + [PDN Format](v2sim/format/pdn)
 + Tool Usage
     + [gui_viewer](v2sim/tools/gui_viewer)
-    + [cmd_plot](v2sim/tools/cmd_plot)
     + [cmd_advplot](v2sim/tools/cmd_advplot)
     + [gen_trip](v2sim/tools/gen_trip)
     + [gen_cs](v2sim/tools/gen_cs)

@@ -52,8 +52,4 @@ There are 4 options for **Bus Selection Mode**:
 + **Random N**: Randomly select $N$ buses from all available buses, and assign CS to a bus randomly selected from the $N$ buses.
 
 ## Command Prompt Version
-If you are familiar with command prompt, you can use the following command to generate CSs. Type following command to read the help information:
-
-```bash
-python gen_cs.py -h
-```
+If you are familiar with command prompt, you can use `python gen_cs.py` to generate CSs, whose introduction is stored in `/v2sim/tools/gen_cs`.

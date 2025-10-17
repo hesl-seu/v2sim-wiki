@@ -18,4 +18,4 @@ Properties showed in the sidebar may be edited by double click. Note that not al
 Currently, it is not able to add or remove PDN elements in the GUI. Please directly edit the PDN file to achieve this.
 
 ### Edit Transportation Network
-Use SUMO NetEdit to edit your transportation network. Usually, the file is ended with `.net.xml`.
+Use SUMO NetEdit to edit your transportation network. Usually, the file is ended with `.net.xml` or `.net.xml.gz`.

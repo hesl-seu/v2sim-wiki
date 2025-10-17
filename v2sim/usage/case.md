@@ -36,6 +36,5 @@ Click the green button "Generate Scenario" to create your case. After that, copy
 ```bash
 python gui_main.py
 ```
-* **Notice:** Double click to open this file is **NOT** recommended since many users have reported it doesn't work as expected.
 
-Click the `Project` menu and open the folder you have created. 
+Click the `Add project...` link and `Open` the folder you have created. 
