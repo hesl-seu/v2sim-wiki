@@ -1,4 +1,4 @@
-# V2Sim: An open-Source vehicle-to-grid (V2G) simulation platform for urban power and transportation network 
+# V2Sim
 
 V2Sim is an open-Source V2G simulation platform for coupled urban power and transportation network. This webpage is a technology documentation of V2Sim.
 
