@@ -2,4 +2,4 @@
 <h2 style="text-align:center">V2Sim-UX Contents</h2>
 
 + Index
-    + [Home](v2simux/)
+    + [主页](zh_hans/v2simux/)
