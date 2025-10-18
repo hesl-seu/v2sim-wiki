@@ -1,5 +1,7 @@
 <p style="text-align:center"><a href="/#/zh_hans/">欢迎<a> | <a href="/#/zh_hans/v2sim/">V2Sim</a> | <a href="/#/zh_hans/v2simux/">V2Sim-UX</a></p>
 <h2 style="text-align:center">V2Sim-UX目录</h2>
 
-+ 索引
-    + [主页](/#/zh_hans/v2simux/)
++ **索引**
+    + [主页](zh_hans/v2simux/)
+    + [快速开始](zh_hans/v2simux/quick-start)
+    + [V2Sim与V2Sim-UX比较观](zh_hans/v2simux/res-cmp)
