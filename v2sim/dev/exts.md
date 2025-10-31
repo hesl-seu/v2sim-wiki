@@ -17,7 +17,7 @@ class AllocEnv:
 ## Customize V2G strategy (V2GAlloc/PdAlloc)
 If you want to set the V2G allocation scheme of a charging station to the following function, set the `v2galloc` attribute of the charging station to "MyAverage" in the `*. scs.xml` file.
 
-The name of the V2G allocation function must end with `ActualRatio`, and its input is as shown in the function signature. The V2G power of each EV must be set in this function.
+The input of the V2G allocation function is shown in the function signature. The V2G power of each EV must be set in this function.
 
 Example:
 
@@ -25,7 +25,7 @@ Example:
 import v2sim
 from v2sim import EV, AllocEnv
 
-def MyAverageActualRatio(env:AllocEnv, veh_cnt: int, v2g_demand: float, v2g_cap: float):
+def MyAverageAllocFunc(env:AllocEnv, veh_cnt: int, v2g_demand: float, v2g_cap: float):
     """
     Customized V2G Strategy
         env: Environment includes SCS, EVs and current time
@@ -41,15 +41,15 @@ def MyAverageActualRatio(env:AllocEnv, veh_cnt: int, v2g_demand: float, v2g_cap:
     for ev in env.EVs:
         ev.set_temp_pd(pd)
 
-v2sim.cs.V2GAllocPool.add("MyAverage", MyAverageActualRatio)
+v2sim.V2GAllocPool.add("MyAverage", MyAverageAllocFunc)
 ```
 ## Customize charging power allocation strategy (PcAlloc)
 Something the charging power supplied by power grid cannot satisfy the demand of the charging EVs. At this time, we have to design a strategy to allocate charging power. The following function is a sample. In order to use it, please set the `pcalloc` attribute of the charging station to "MyAverage" in the `*. fcs.xml` and `*. scs.xml` file.
 
-The name of the charging power allocation function must end with `MaxPCAllocator`, and its input is as shown in the function signature. The actual charging power of each EV must be set in this function.
+The input of the charging power allocation function is shown in the function signature. The actual charging power of each EV must be set in this function.
 
 ```py
-def MyAverageMaxPCAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot: float):
+def MyAverageMaxPcAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot: float):
     """
     Average maximum charging power allocator
         env: Allocation environment
@@ -64,6 +64,8 @@ def MyAverageMaxPCAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot:
     # Important: Must set the actual charging power of each involved EV by set_temp_pc(...)
     for ev in env.EVs:
         ev.set_temp_max_pc(pc0)
+
+v2simux.MaxPCAllocPool.add("MyAverage", MyAverageMaxPcAllocator)
 ```
 
 ## Customize EV battery correction function (BCF)
@@ -71,7 +73,7 @@ A battery correction function (BCF) describe the real charging power (Pc) of an 
 
 If you want to set the BCF of a certain electric vehicle to the a function named "MyEquaChargeRate", set the `rmod` attribute of the electric vehicle to "MyEqual" in the `*.veh.xml` file.
 
-The name of a BCF must end with `ChargeRate`. Its input is as shown in the function signature, and its output is the actual charging power.
+The inputof a BCF is shown in the function signature, and its output is the actual charging power.
 
 A BCF example is shown as follows:
 
@@ -79,7 +81,7 @@ A BCF example is shown as follows:
 import v2sim
 from v2sim import EV
 
-def MyEqualChargeRate(rate: float, ev: 'EV') -> float:
+def MyEqualChargeRate(rate: float, ev: EV) -> float:
     """
     Charging power modifier
         rate: Nominal charging power
@@ -88,5 +90,5 @@ def MyEqualChargeRate(rate: float, ev: 'EV') -> float:
     """
     return rate
 
-v2sim.ev.ChargeRatePool.add("MyEqual", MyEqualChargeRate)
+v2sim.ChargeRatePool.add("MyEqual", MyEqualChargeRate)
 ```

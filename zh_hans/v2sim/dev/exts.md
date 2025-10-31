@@ -17,7 +17,7 @@ class AllocEnv:
 ## 自定义 V2G 策略 (V2GAlloc/PdAlloc)
 如果您想将充电站的 V2G 分配方案设置为以下函数，请在 `*.scs.xml` 文件中将充电站的 `v2galloc` 属性设置为 "MyAverage"。
 
-V2G 分配函数的名称必须以 `ActualRatio` 结尾，其输入如函数签名所示。必须在此函数中设置每个电动汽车的 V2G 功率。
+V2G 分配函数的输入如函数签名所示。必须在此函数中设置每个电动汽车的 V2G 功率。
 
 示例：
 
@@ -47,10 +47,10 @@ v2sim.cs.V2GAllocPool.add("MyAverage", MyAverageActualRatio)
 ## 自定义充电功率分配策略 (PcAlloc)
 有时电网提供的充电功率无法满足充电电动汽车的需求。此时，我们需要设计策略来分配充电功率。以下函数是一个示例。要使用它，请在 `*.fcs.xml` 和 `*.scs.xml` 文件中将充电站的 `pcalloc` 属性设置为 "MyAverage"。
 
-充电功率分配函数的名称必须以 `MaxPCAllocator` 结尾，其输入如函数签名所示。必须在此函数中设置每个电动汽车的实际充电功率。
+充电功率分配函数的输入如函数签名所示。必须在此函数中设置每个电动汽车的实际充电功率。
 
 ```py
-def MyAverageMaxPCAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot: float):
+def MyAverageMaxPcAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot: float):
     """
     平均最大充电功率分配器
         env: 分配环境
@@ -65,6 +65,8 @@ def MyAverageMaxPCAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot:
     # 重要：必须通过 set_temp_pc(...) 设置每个相关电动汽车的实际充电功率
     for ev in env.EVs:
         ev.set_temp_max_pc(pc0)
+
+v2simux.MaxPCAllocPool.add("MyAverage", MyAverageMaxPcAllocator)
 ```
 
 ## 自定义电池校正函数 (BCF)
@@ -72,7 +74,7 @@ def MyAverageMaxPCAllocator(env: AllocEnv, vcnt:int, max_pc0: float, max_pc_tot:
 
 如果您想将某辆电动汽车的 BCF 设置为名为 "MyEquaChargeRate" 的函数，请在 `*.veh.xml` 文件中将该电动汽车的 `rmod` 属性设置为 "MyEqual"。
 
-BCF 的名称必须以 `ChargeRate` 结尾。其输入如函数签名所示，输出是实际充电功率。
+BCF 的输入如函数签名所示，输出是实际充电功率。
 
 BCF 示例如下：
 
@@ -89,5 +91,5 @@ def MyEqualChargeRate(rate: float, ev: EV) -> float:
     """
     return rate
 
-v2sim.ev.ChargeRatePool.add("MyEqual", MyEqualChargeRate)
+v2sim.ChargeRatePool.add("MyEqual", MyEqualChargeRate)
 ```
