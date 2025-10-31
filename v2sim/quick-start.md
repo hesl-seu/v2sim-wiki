@@ -2,17 +2,15 @@
 
 ## A. Setup the environment
 
-1. **Setup Python**: Visit `https://www.python.org/download` to get Python (version >=3.8 is required. Older version cannot run this program normally).
+1. **Setup Python**: Visit `https://www.python.org/download` to get Python (version >=3.9 is required. Older version may not run this program normally).
 
-2. **Setup SUMO**: Visit `https://eclipse.dev/sumo/` to get SUMO (version 1.19 and above are recommended). **Note**: This step can be skipped if you do not want to edit the road network.
-
-3. **Setup necessary packages**. Ensure you have installed `pip` together with Python. **Note**: As for package `libsumo`, its version must be same as the vesion of SUMO!
+2. **Setup necessary packages**. Ensure you have installed `pip` together with Python. **Note**: As for package `libsumo`, its version must be same as the vesion of SUMO!
 ```bash
 python -m ensurepip
 python -m pip install -r requirements.txt
 ```
 
-4. **Download code**. You can directly download code by clicking the `download` button on GitHub page, or you can setup `git` and clone the repository by one of the following command. The official tutorial about using `git` is [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+3. **Download code**. You can directly download code by clicking the `download` button on GitHub page, or you can setup `git` and clone the repository by one of the following command. The official tutorial about using `git` is [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 ```bash
 # Only clone the release version of v2sim
 git clone -b main --single-branch https://github.com/fmy-xfk/v2sim.git
@@ -25,18 +23,23 @@ There are 3 pre-defined cases in the `cases` folder: `std_12nodes`, `std_37nodes
 
 **Full tutorial for creating a new case:**
 
-1. **Download transportation network**: Use  `OSMWebWizard` provided by SUMO to download the road network. 
+1. **Download transportation network**: Use `OSMWebWizard` provided by SUMO to download the road network. Run `<Python Setup Path>\Lib\site-packages\sumo\tools\osmWebWizard.py` with Python, select a region, and then follow the directions.
 
 |Do NOT add vehicles|Only preserve 'highway'|
 |---|---|
 |![alt text](/imgs/1.png)|![alt text](/imgs/2.png)|
 
-Copy your case generated with OSMWebWizard to a proper place. Then run `gui_main.py` in the command prompt by:
+Copy your case generated with OSMWebWizard to a proper place. If you want to alter the road network, please use `netedit` of SUMO. You can use command `netedit` in your command prompt to start the program if Python has been added to the environment variable `PATH`.
+
+After editing the road network, run `gui_main.py` in the command prompt by:
 ```bash
 python gui_main.py
 ```
 
-Click the `Project` menu and open the folder you have created. You will see something like this:
+Click the `Add project...` link, select the folder you have created, and then open it.
+![alt text](/imgs/0.png)
+
+You will see something like this:
 ![alt text](/imgs/3.png)
 
 2. Download charging station positions: If the area you downloaded is in **China Mainland**, you can download charging station positions in this program. Otherwise, please skip this step.
@@ -52,7 +55,7 @@ Click the `Project` menu and open the folder you have created. You will see some
 
 + Do **NOT** click `Generate` repeatedly even if it seems not working. The progress will be shown in the command prompt instead of popping up another window.
 
-+ **Generating Fast CS is neccessary**, while generating slow CS is not.
++ **Generating Fast CS and CS is neccessary.**
 
 + A successful result is like this:
 
