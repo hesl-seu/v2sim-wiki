@@ -4,13 +4,7 @@
 
 1.  **安装 Python**：访问 `https://www.python.org/download` 获取 Python (需要版本 >=3.9。旧版本可能无法正常运行本程序)。
 
-2.  **安装必要的包**。确保您已安装随 Python 附带的 `pip`。**注意**：对于 `libsumo` 包，其版本必须与 SUMO 的版本一致！
-```bash
-python -m ensurepip
-python -m pip install -r requirements.txt
-```
-
-3.  **下载代码**。您可以直接点击 GitHub 页面上的 `download` 按钮下载代码，或者安装 `git` 后使用以下命令之一克隆仓库。关于使用 `git` 的官方教程在[这里](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+2.  **下载代码**。您可以直接点击 GitHub 页面上的 `download` 按钮下载代码，或者安装 `git` 后使用以下命令之一克隆仓库。关于使用 `git` 的官方教程在[这里](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 ```bash
 # 仅克隆 v2sim 的发布版本
 git clone -b main --single-branch https://github.com/fmy-xfk/v2sim.git
@@ -18,28 +12,26 @@ git clone -b main --single-branch https://github.com/fmy-xfk/v2sim.git
 git clone https://github.com/fmy-xfk/v2sim.git
 ```
 
+3.  **安装必要的包**。确保您已安装随 Python 附带的 `pip`。**注意**：对于 `libsumo` 包，其版本必须与 SUMO 的版本一致！
+```bash
+python -m ensurepip
+python -m pip install -r requirements.txt
+```
+
 ## B. 创建案例
 在 `cases` 文件夹中有 3 个预定义的案例：`std_12nodes`, `std_37nodes` 和 `std_Nanjing`。您可以直接使用这 3 个案例，或者从头开始创建一个新案例。
 
 **创建新案例的完整教程：**
 
-1.  **下载交通路网**：使用 SUMO 提供的 `OSMWebWizard` 下载路网。用Python运行`<Python安装路径>\Lib\site-packages\sumo\tools\osmWebWizard.py`，选择一个区域，并且遵循以下指南。
+1.  **下载交通路网**：使用 `gui_osmWizard.py` 来下载路网。运行此脚本后，您的浏览器将被打开并显示地图。<br> ![alt text](/imgs/1.png)
+    +   您可以输入城市名称并点击 `Search` 来定位，或者输入经纬度并点击 `Go to`。由于网络和现代浏览器的限制，`Use current location` 功能可能无法工作。
+    +   默认情况下，将下载您屏幕上显示的整个地图区域。您可以勾选 `Select area` 复选框来仅选择一个矩形区域。
+    +   您可以根据自己的偏好调整 `Options` 中的项目。
+    +   在第二个标签页中，默认仅勾选 `highway`。不推荐勾选其他选项，因为 V2Sim 不会模拟这些道路上的车辆运动。
+    +   在适当配置后，点击 `Generate Scenario` 按钮。案例将在 `cases` 文件夹中生成，并以当前时间命名。案例生成后，`gui_main.py` 将自动打开。界面类似下图：<br> ![alt text](/imgs/0.png)
+    +   如果生成的案例未被自动选中，请点击 `Add project...` 链接，选择您创建的文件夹，然后打开它。您将看到类似这样的内容：<br> ![alt text](/imgs/3.png)
 
-| 不要添加车辆 | 仅保留 'highway' 类型道路 |
-|---|---|
-| ![alt text](/imgs/1.png) | ![alt text](/imgs/2.png) |
-
-将您使用 OSMWebWizard 生成的案例复制到合适的位置。如果您想要编辑路网，请使用SUMO的`netedit`。如果Python已经被正确的添加到环境变量`PATH`中，您就可以直接在命令行中输入`netedit`来启动路网编辑程序。
-
-编辑路网后，可以通过以下命令在命令提示符中运行 `gui_main.py`：
-```bash
-python gui_main.py
-```
-您将看到如下对话框，单击`Add project...`，选择刚刚创建的案例文件夹，单击`Open`即可打开项目。
-![alt text](/imgs/0.png)
-
-打开项目后，您将看到如下界面：
-![alt text](/imgs/3.png)
+**注意**：如果您想要修改路网，请使用 SUMO 的 `netedit` 工具。如果 Python 已被添加到环境变量 `PATH` 中，您可以在命令提示符中使用 `netedit` 命令来启动该程序。
 
 2.  **下载充电站位置**：如果您下载的区域在**中国大陆**，您可以在本程序中下载充电站位置。否则，请跳过此步骤。
     +   切换到 `充电站下载` 页面，在给定的输入框中键入一个高德地图开发者密钥。**注意：您必须在[高德地图官方网站](https://lbs.amap.com/)上申请一个 Web服务 的密钥。没有密钥此功能将无法工作。**
