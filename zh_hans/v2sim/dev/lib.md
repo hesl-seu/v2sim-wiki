@@ -8,7 +8,8 @@
 
 ```bash
 # 制作 wheel 包
-python -m build -w
+pip install uv
+uv build
 
 # 安装包。记得将 <package_name> 替换为实际的文件名！
 pip install <package_name>.whl

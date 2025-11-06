@@ -27,20 +27,15 @@ python -m venv ./.venv
 source ./.venv/bin/activate
 ```
 
-5. **Install necessary packages**. Ensure you have installed `pip` together with Python. If you do not need parallel acceleration,you can directly install by `pip install -r requirements.txt`. For free threading Python 3.14, since it has just been released shortly before, some packages (like PyQt5) do not support it yet. Please use following commands:
+5. **Install necessary packages**. Ensure you have installed `pip` together with Python, and please use following commands:
 ```bash
 python -m ensurepip
-# For Windows with free threading Python 3.14
-./install_deps.bat
-# For Linux/MacOS with free threading Python 3.14
-mv install_deps.bat install_deps.sh
-chmod u+x install_deps.sh
-./install_deps.sh
+pip install -r requirements.txt
 ```
 
 ## B. Create a case from V2Sim
-There are 3 pre-defined cases in the `cases` folder. You can exploit the 3 cases directly, or create a new case from scratch.
+There are 3 pre-defined cases in the `cases` folder. You can exploit the 3 cases directly.
 
-If you have an existing v2sim (microscopic version) case, you can use `gui_convert.py` to convert it. Vehicles, charging stations will not be preserved.
+Currently, V2Sim-UX do not support create a case from scratch. But If you have an existing v2sim (microscopic version) case, you can use `gui_convert.py` to convert it. Vehicles, charging stations will not be preserved.
 
 Other parts of V2Sim-UX are generally similar to V2Sim. Please refer to [V2Sim documents](v2sim/quick-start?id=b-create-a-case).

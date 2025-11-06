@@ -6,7 +6,8 @@ If you'd like to use the raw version of V2Sim, you can package V2Sim as a `.whl`
 
 ```bash
 # Make a wheel package
-python -m build -w
+pip install uv
+uv build
 
 # Install the package. Remeber to replace the <package_name> with actual file name!
 pip install <package_name>.whl

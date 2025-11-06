@@ -28,15 +28,10 @@ python -m venv ./.venv
 source ./.venv/bin/activate
 ```
 
-5.  **安装必要的包**。确保您已安装随 Python 附带的 `pip`。如果您不需要并行加速，可以直接使用 `pip install -r requirements.txt` 安装。对于 free-threading Python 3.14，由于它发布不久，一些包（如 PyQt5）尚未支持。请使用以下命令：
+5.  **安装必要的包**。确保您已安装随 Python 附带的 `pip`，然后使用以下命令安装依赖：
 ```bash
 python -m ensurepip
-# 对于使用 free-threading Python 3.14 的 Windows 系统
-./install_deps.bat
-# 对于使用 free-threading Python 3.14 的 Linux/MacOS 系统
-mv install_deps.bat install_deps.sh
-chmod u+x install_deps.sh
-./install_deps.sh
+pip install -r requirements.txt
 ```
 
 ## B. 从 V2Sim 创建案例
