@@ -21,7 +21,7 @@ Then you will get a key consisting of digits and letters. Put this key into page
 ## Download EVCS in V2Sim
 Just open your case, fill in your key in "Download CS" page, and click "Download". The process is automatic, watch the command line prompt to view the progress. Notice that you must have enough quota for searching POI. A free key may have a very low quota so that you may not able to download all of the EVCS in the selected area.
 
-**Note: **
+**Note:**
 1. Error may happen during the download procedure. In this case, please copy the file `buf.csv` in V2Sim root folder to your case and rename it to `cs.csv`. It contains the cache of downloaded CS.
 
 2. If you are using V2Sim-GUI, you may have to reopen the GUI to view the downloaded CS.
