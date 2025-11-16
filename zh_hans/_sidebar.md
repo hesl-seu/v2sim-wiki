@@ -1,6 +1,29 @@
 <p style="text-align:center"><a href="/">English<a> | <a href="/#/zh_hans/">中文(简体)</a></p>
-<h2 style="text-align:center">目录</h2>
 
-+ [主页](/)
-+ [V2Sim](zh_hans/v2sim/)
-+ [V2Sim-UX](zh_hans/v2simux/)
++ **快速开始**
+    + [主页](zh_hans/)
+    + [安装](zh_hans/usage/1_inst)
+    + **创建算例**
+        + [下载并编辑网络](zh_hans/usage/2_1_downnet)
+        + [下载充电站位置](zh_hans/usage/2_2_downcs)
+        + [生成并编辑充电站](zh_hans/usage/2_3_editcs)
+        + [生成车辆](zh_hans/usage/2_4_genveh)
+    + [仿真](zh_hans/usage/3_sim)
+    + [分析结果](zh_hans/usage/4_results)
+    + [比较V2Sim和V2Sim-UX](zh_hans/cmp)
++ **命令行工具**
+    + [v2sim](zh_hans/tools/sim_single)
+    + [v2sim-osm](zh_hans/tools/osm)
+    + [v2sim-para](zh_hans/tools/sim_para)
+    + [v2sim-plot](zh_hans/tools/cmd_plot)
+    + [v2sim-advplot](zh_hans/tools/cmd_advplot)
+    + [v2sim-gen-trip](zh_hans/tools/gen_trip)
+    + [v2sim-gen-cs](zh_hans/tools/gen_cs)
++ **文件格式**
+    + [充电站格式](zh_hans/format/cs)
+    + [电动汽车格式](zh_hans/format/veh)
+    + [配电网格式](zh_hans/format/pdn)
++ **开发者指南**
+    + [代码结构](zh_hans/dev/codestr)
+    + [扩展功能](zh_hans/dev/exts)
+    + [插件和统计项](zh_hans/dev/plugins)
