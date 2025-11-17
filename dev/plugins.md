@@ -149,4 +149,7 @@ print(_L("STA_DEMO"))
 ```
 <!-- tabs:end -->
 
-Here `demo` is the name of the plugin, `DemoExternalPlugin` is the class name, and `["pdn"]` is the list of dependencies. If the plugin has no dependencies, just use `[]`.
+## Import and Remove Plugins
+Copy your Python file and language file to `~/.v2sim/plugins/` (for V2Sim) or `~/.v2simux/plugins/` (for V2Sim-UX). Or you can use the start-up GUI: Click the "Tool" menu and select "Plugins...", then you can add or remove plugins in the pop up window.
+
+Note: `~` is usually `C:\Users\<username>` in Windows.

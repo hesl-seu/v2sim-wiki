@@ -150,4 +150,8 @@ print(_L("STA_DEMO"))
 ```
 <!-- tabs:end -->
 
-这里 `demo` 是插件的名称，`DemoExternalPlugin` 是类名，`["pdn"]` 是依赖列表。如果插件没有依赖，只需使用 `[]`。
+## 导入和移除插件
+
+将您的 Python 文件和语言文件复制到 `~/.v2sim/plugins/`（对于 V2Sim）或 `~/.v2simux/plugins/`（对于 V2Sim-UX）。或者您可以使用启动图形用户界面：点击 "工具" 菜单并选择 "插件..."，然后您可以在弹出的窗口中添加或移除插件。
+
+注：`~`在Windows下通常为`C:\Users\<用户名>`。

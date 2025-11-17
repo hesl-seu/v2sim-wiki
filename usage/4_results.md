@@ -1,5 +1,5 @@
 # View the results
-After the simulation is done, the results will be stored in the case folder, with a subfolder named `results`. Run `v2sim-gui` or `v2simux-gui` and select the case you have just simulated. Then click `View Results` and a new window will pop up to show the results. It will be something like this:
+After the simulation is done, the results will be stored in the case folder, with a subfolder named `results`. Run `v2sim-gui` or `v2simux-gui` to show the start-up window and select the case you have just simulated. Then click `View Results` and a new window will pop up to show the results. It will be something like this:
 
 ![alt text](../imgs/6.png)
 
@@ -8,7 +8,7 @@ Tick the items you want to draw the corresponding figures. Click the button `Plo
 
 **NOTE:** Some items may not be available becasuse the corresponding statistic item is not selected when configuring the project, and thus it is not produced. 
 
-**Compare two results:** Use `gui_cmp.py` to show two results in the same page, which makes it easier for you to identify the difference. Just like the following image:
+**Compare two results:** In start-up window, turn to "Tool" menu and select "Result comparer..." item to show two results in the same page, which makes it easier for you to identify the difference. Just like the following image:
 
 ![gui_cmp](../imgs/9.png)
 

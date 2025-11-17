@@ -45,7 +45,6 @@ The window will shut down once you clicked `Start Simulation!`. Please wait pati
 
 
 ## Multiple Cases Parallism
-If you want to run several simulation parallelly (which can fully utilize your CPU), you can use `gui_para.py`. This function is quite useful 
-when you want to change a specific parameter to measure its implication. Like the following image:
+If you want to run several simulation parallelly (which can fully utilize your CPU), you turn to "Tool" menu and select "Parallel simulator..." in the start-up window (by command `v2sim-gui` or `v2simux-gui`). This function is quite useful when you want to change a specific parameter to measure its implication. Like the following image:
 
 ![alt text](../imgs/10.png)
