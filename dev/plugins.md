@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Iterable, Any, Tuple, List, Dict
 from feasytools import LangLib # for multi-languages
-from v2sim import CustomLocaleLib, TrafficInst
+from v2sim import TrafficInst
 from v2sim.plugins import *
 from v2sim.statistics import *
 # Replace v2sim with v2simux if you are using V2Sim-UX

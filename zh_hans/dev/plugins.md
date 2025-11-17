@@ -15,7 +15,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Iterable, Any, Tuple, List, Dict
 from feasytools import LangLib # 用于多语言支持
-from v2sim import CustomLocaleLib, TrafficInst
+from v2sim import TrafficInst
 from v2sim.plugins import *
 from v2sim.statistics import *
 # 如果您使用的是 V2Sim-UX，请将 v2sim 替换为 v2simux
