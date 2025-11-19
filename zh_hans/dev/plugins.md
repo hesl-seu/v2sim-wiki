@@ -4,7 +4,7 @@
 
 插件可以被不同的案例使用。它可用于自定义 V2Sim 的行为，或为 V2Sim 添加新功能。
 
-将插件文件放置在 `/external_components/` 目录下。文件名必须与插件名相同。例如，如果您的插件名为 `demo`，那么文件名必须是 `demo.py`。**请注意，您的插件名称不得与任何已安装的其他软件包同名；否则将无法正确导入。**
+将插件Python文件放置在 `~/.v2sim/plugins/` (对于V2Sim)或者 `~/.v2simux/plugins/` (对于V2Sim-UX)目录下。对于Windows用户，如果Windows系统安装在C盘上，`~`通常为`C:\Users\<你的用户名>`。如果您希望随时修改插件，也可以在上述目录中创建`.link`文件，并在该文件中写入实际的插件Python文件路径。文件名必须与插件名相同。例如，如果您的插件名为 `demo`，那么文件名必须是 `demo.py`或者`demo.link`。**请注意，您的插件名称不得与任何已安装的其他软件包同名；否则将无法正确导入。**
 
 插件必须继承 `v2sim/plugins/base.py` 中定义的 `PluginBase` 类。必须包含 `Init` 和 `Work` 方法。前者用于初始化插件，后者用于运行插件。还必须包含 `Description` 属性。以下是一个插件类的示例：
 
@@ -29,7 +29,7 @@ class DemoExternalPlugin(PluginBase):
     def Description(self) -> str:
         return "此插件的描述"
     
-    def Init(self, elem:ET.Element, inst:TrafficInst, work_dir:Path, plg_deps:'List[PluginBase]') -> object:
+    def Init(self, elem:ET.Element, inst:TrafficInst, work_dir:Path, res_dir:Path, plg_deps:'List[PluginBase]') -> object:
         self.SetPreStep(self.Work)
         return None
 

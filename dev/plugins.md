@@ -3,7 +3,7 @@ You can add plugins and statistics to V2Sim!
 
 A plugin can be used by different cases. It can be used to customize the behavior of V2Sim, or to add new features to V2Sim. 
 
-Place the plugin file in `/external_components/`. The file name must be same as the plugin name. For example, if your plugin is called `demo`, then the file name must be `demo.py`. **Please note that your plugin must not share the same name as any other package installed; otherwise it could not be imported correctly.**
+Place the plugin Python file in `~/.v2sim/plugins` (for V2Sim) or `~/.v2simux/plugins` (for V2Sim-UX). For Windows users, `~` usually equals to `C:\Users\<your user name>` if your systen is installed on Disk C. If you wish to modify the plugin at any time, you can also create a `. link` file in the above directory and write the actual plugin Python file path in the file. The file name must be same as the plugin name. For example, if your plugin is called `demo`, then the file name must be `demo.py`. **Please note that your plugin must not share the same name as any other package installed; otherwise it could not be imported correctly.**
 
 A plugin must inherit the class `PluginBase` defined in `v2sim/plugins/base.py`. Method `Init` and `Work` are necessary. The former is used to initialize the plugin, and the latter is used to run the plugin. Property `Description` must be also included. The following is an example of a plugin class:
 
@@ -28,7 +28,7 @@ class DemoExternalPlugin(PluginBase):
     def Description(self) -> str:
         return "Description of this plugin"
     
-    def Init(self, elem:ET.Element, inst:TrafficInst, work_dir:Path, plg_deps:'List[PluginBase]') -> object:
+    def Init(self, elem:ET.Element, inst:TrafficInst, work_dir:Path, res_dir:Path, plg_deps:'List[PluginBase]') -> object:
         self.SetPreStep(self.Work)
         return None
 
