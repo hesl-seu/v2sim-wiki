@@ -43,26 +43,14 @@ pip install cvxpy ecos
 # **V2Sim-UX**
 
 ```bash
-pip install --extra-index-url https://pypi.anaconda.org/scientific-python-nightly-wheels/simple v2simux 
+pip install v2simux 
 ```
 
 # **V2Sim-UX (Parallel)**
-As the packages used by free-threading version is different from the GIL-enabled version, please create a virtual environment to avoid spoiling your Python.
+As the packages used by free-threading version is different from the GIL-enabled version, please create a virtual environment to avoid spoiling your Python. Do not use the `pip` version, since its scripts cannot be booted from Python3.14t currently.
 
-```bash
-mkdir ./v2sim
-cd ./v2sim
-python3.14t -m venv ./.venv
+Please turn to install from source.
 
-# Windows CMD
-./.venv/Scripts/activate.bat
-# Windows Powershell
-./.venv/Scripts/activate.ps1
-# Linux/MacOS
-source ./.venv/bin/activate
-
-pip install --extra-index-url https://pypi.anaconda.org/scientific-python-nightly-wheels/simple v2simux 
-```
 <!-- tabs:end -->
 
 ### **From source**
@@ -140,3 +128,36 @@ pip install -e .
 
 ## Pre-defined cases
 If you have installed from the source, you will find 3 pre-defined cases in the `cases` folder: `std_12nodes`, `std_37nodes`, and `std_Nanjing`. V2Sim will have an extra `pwe_37nodes`. You can utilize these cases directly, or create a new case from scratch by following sections.
+
+## Run program
+<!-- tabs:start -->
+# **V2Sim**
+
+```bash
+# Start up GUI
+v2sim-gui
+
+# Start simulation from command prompt
+v2sim
+```
+
+# **V2Sim-UX**
+
+```bash
+# Start up GUI
+v2simux-gui
+
+# Start simulation from command prompt
+v2simux
+```
+# **V2Sim-UX (Parallel)**
+
+```bash
+# Assume you are in the root of source code folder
+# Start up GUI
+python3.14t ./v2simux/tools/gui_main.py
+
+# Start simulation from command prompt
+python3.14t ./v2simux/tools/sim_single.py
+```
+<!-- tabs:end -->

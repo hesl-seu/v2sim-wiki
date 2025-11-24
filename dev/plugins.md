@@ -35,6 +35,12 @@ class DemoExternalPlugin(PluginBase):
     def Work(self, _t:int, /, sta:PluginStatus) -> Tuple[bool, None]:
         '''The execution function of the plugin at time _t'''
         raise NotImplementedError
+    
+    @staticmethod
+    def ElemShouldHave():
+        return ConfigDict([
+            ConfigItem("demoitem", EditMode.ENTRY, "This is a demo item that can be edited.", "default value"),
+        ])
 ```
 
 + `Description` is a property, which should return the description of the plugin. The description will be displayed in the command prompt when simulation starts to briefly introduce the plugin, so it should not be too long.
@@ -52,6 +58,8 @@ class DemoExternalPlugin(PluginBase):
     + Function signature `PINoRet`: `def func() -> None`
 
 + `Work` function is a `PIExec` function to conduct the actual work of each step. It can be executed either before or after a traffic step, by configuring the `Init` function.
+
++ `ElemShouldHave` defines how the plugins look like in the plugin editor GUI. It tells the GUI which controls should be used to edit the properties and what is the default values. `EditMode` can be referred to V2Sim source code.
 
 ## Create a Statistic Item
 To create a statistic item, you have to inherit from the abstract class `StaBase`. There is no special demand for the class name. Three basic components must be included, property `Description`, method `__init__`, method `GetLocalizedName`, method `GetPluginDependency`, and method `GetData`. You can take a look at our internal statistic items as examples, at `v2sim.statistics`.
@@ -92,6 +100,21 @@ Here is a legal example:
 plugin_exports = ("demo", DemoExternalPlugin, ["pdn"])
 sta_exports = ("demo", DemoStatisticItem)
 ```
+
+There is another way to export plugins and statistics if you are developing a package based on V2Sim. Use a decorator for your plugins and statistical items.  (Version required: >=1.3.2)
+
+```py
+from v2sim import RegPlugin, RegStaItem
+
+@RegPlugin(name="demo", dependencies=["pdn"])
+class DemoPlugin(PluginBase):
+    ...
+
+@RegStaItem(name="demo")
+class DemoStatisticItem(StaBase):
+    ...
+```
+Then, when your package is loaded, the plugins and statitical items are automatically registered **internally**.
 
 ## Internationalization (i18n)
 V2Sim supports simple i18n, which is powered by `feasytools`. You may define the description for different languages. There are two ways to realize i18n: `Single File` and `Multiple File`.

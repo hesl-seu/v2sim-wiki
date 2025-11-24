@@ -44,25 +44,11 @@ pip install cvxpy ecos
 # **V2Sim-UX**
 
 ```bash
-pip install --extra-index-url https://pypi.anaconda.org/scientific-python-nightly-wheels/simple v2simux 
+pip install v2simux 
 ```
 
 # **V2Sim-UX (并行模式)**
-由于自由线程版本使用的包与启用 GIL 的版本不同，请创建一个虚拟环境以避免破坏您的 Python 环境。
-
-```bash
-mkdir ./v2sim
-cd ./v2sim
-python3.14t -m venv ./.venv
-
-# Windows CMD
-./.venv/Scripts/activate.bat
-# Windows Powershell
-./.venv/Scripts/activate.ps1
-# Linux/MacOS
-source ./.venv/bin/activate
-
-pip install --extra-index-url https://pypi.anaconda.org/scientific-python-nightly-wheels/simple v2simux 
+由于自由线程版本使用的包与启用 GIL 的版本不同，请创建一个虚拟环境以避免破坏您的 Python 环境。另外，使用pip安装时，启动的程序默认是非自由线程版本的Python，不能运行并行模式，因此请从源码安装。
 ```
 <!-- tabs:end -->
 
@@ -140,3 +126,36 @@ pip install -e .
 
 ## 预定义案例
 如果您从源码安装，您将在 `cases` 文件夹中找到 3 个预定义案例：`std_12nodes`、`std_37nodes` 和 `std_Nanjing`。V2Sim 还会有一个额外的 `pwe_37nodes`。您可以直接使用这些案例，或者按照后续章节从头创建一个新案例。
+
+## 运行程序
+<!-- tabs:start -->
+# **V2Sim**
+
+```bash
+# 打开GUI
+v2sim-gui
+
+# 直接在命令行仿真
+v2sim
+```
+
+# **V2Sim-UX**
+
+```bash
+# 打开GUI
+v2simux-gui
+
+# 直接在命令行仿真
+v2simux
+```
+# **V2Sim-UX (Parallel)**
+
+```bash
+# 假设您已经处于源码文件夹的根目录里面
+# 打开GUI
+python3.14t ./v2simux/tools/gui_main.py
+
+# 直接在命令行仿真
+python3.14t ./v2simux/tools/sim_single.py
+```
+<!-- tabs:end -->

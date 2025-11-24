@@ -36,6 +36,12 @@ class DemoExternalPlugin(PluginBase):
     def Work(self, _t:int, /, sta:PluginStatus) -> Tuple[bool, None]:
         '''插件在时间 _t 的执行函数'''
         raise NotImplementedError
+    
+    @staticmethod
+    def ElemShouldHave():
+        return ConfigDict([
+            ConfigItem("demoitem", EditMode.ENTRY, "This is a demo item that can be edited.", "default value"),
+        ])
 ```
 
 + `Description` 是一个属性，应返回插件的描述。该描述将在仿真开始时显示在命令提示符中，用于简要介绍插件，因此不应过长。
@@ -53,6 +59,8 @@ class DemoExternalPlugin(PluginBase):
     + 函数签名 `PINoRet`: `def func() -> None`
 
 + `Work` 函数是一个 `PIExec` 函数，用于执行每个步骤的实际工作。它可以通过配置 `Init` 函数在交通步骤之前或之后执行。
+
++ `ElemShouldHave`定义插件在插件编辑器GUI中的外观。它告诉GUI应该使用哪些控件来编辑属性以及默认值是什么。`EditMode`可以参考V2Sim源代码.
 
 ## 创建统计项
 要创建统计项，您必须继承抽象类 `StaBase`。对类名没有特殊要求。必须包含五个基本组件：属性 `Description`、方法 `__init__`、方法 `GetLocalizedName`、方法 `GetPluginDependency` 和方法 `GetData`。您可以查看我们内部的统计项作为示例，位于 `v2sim.statistics`。
@@ -93,6 +101,21 @@ class DemoStatisticItem(StaBase):
 plugin_exports = ("demo", DemoExternalPlugin, ["pdn"])
 sta_exports = ("demo", DemoStatisticItem)
 ```
+
+如果你正在开发一个基于V2Sim的软件包，还有另一种导出插件和统计数据的方法。为你的插件和统计项使用装饰器。 (最低版本要求：1.3.2)
+
+```py
+from v2sim import RegPlugin, RegStaItem
+
+@RegPlugin(name="demo", dependencies=["pdn"])
+class DemoPlugin(PluginBase):
+    ...
+
+@RegStaItem(name="demo")
+class DemoStatisticItem(StaBase):
+    ...
+```
+然后，当你的包被加载时，插件和统计项会自动在**内部**注册。
 
 ## 国际化 (i18n)
 V2Sim 支持简单的国际化，由 `feasytools` 提供支持。您可以为不同语言定义描述。有两种实现国际化的方式：`单文件` 和 `多文件`。
