@@ -1,12 +1,14 @@
 # V2Sim
 
-V2Sim 是一个用于城市电力和交通网络耦合仿真的开源车网互动仿真平台。它有两个分支，在交通仿真部分有所不同。
+V2Sim 是一个用于城市电力和交通网络耦合仿真的开源车网互动仿真平台。它具有如下特性：
 
-+ [**V2Sim**](https://github.com/hesl-seu/v2sim)：使用 SUMO 进行**微观**交通仿真。它可以**识别单个车辆的微观运动**，包括其车道、速度、加速度等。如果您的研究关注电动汽车精细运动对电网的影响，此版本是合适的。代码链接：https://github.com/hesl-seu/v2sim
-
-+ [**V2Sim-UX**](https://github.com/hesl-seu/v2sim/tree/uxsim)：使用 UXsim 进行**中观**交通仿真。它使用自由线程时 Python (3.14+) **运行非常快**。如果您的研究需要快速迭代并关注交通流的整体影响，此版本是合适的。代码链接：https://github.com/hesl-seu/v2sim/tree/uxsim
+1. 配电网仿真，以独立包FPowerKit的形式提供；
+2. 交通网仿真，通过SUMO（微观精确仿真）和UXsim（中观快速仿真）实现；
+3. 电动汽车充电和V2G放电仿真。
 
 请按左侧边栏所示的顺序阅读以快速入门。**由于 V2Sim 是一个大型项目，当您首次启动 V2Sim/V2Sim-UX 时，主窗口弹出可能需要长达数分钟的时间。**
+
+代码仓库：https://github.com/hesl-seu/v2sim
 
 ## 引用 V2Sim
 如果您正在使用 V2Sim 或 V2Sim-UX，请引用我们的文章：V2Sim: An Open-Source Microscopic V2G Simulation Platform in Urban Power and Transportation Network。论文链接：https://ieeexplore.ieee.org/document/10970754

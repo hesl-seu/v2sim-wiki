@@ -3,72 +3,40 @@
 ## Command Usage
 
 ### Main Command
-
-<!-- tabs:start -->
-
-# **V2Sim**
 ```
-v2sim -d <configuration folder> \
+v2sim (-d | --dir | --proj-dir <configuration folder>) \
+    [-o | --out | --out-dir <output folder>] \
     [-b <start time>] \
-    [-e <end time>] \
     [-l <traffic simulation step>] \
-    [-o <output folder>] \
+    [-e <end time>] \
+    [--break-at <break at time>]
     [--seed <random seed>] \
-    [--log <data to be recorded>] \
-    [--no-plg <plugins to be disabled>] \
-    [--copy] \
+    [--log | --logging-items <data to be recorded>] \
+    [--no-plg | --disable-plugins <plugins to be disabled>] \
     [--gen-veh <regeneration command>] \
     [--gen-fcs <regeneration command>] \
     [--gen-scs <regeneration command>] \
-    [--plot <plotting command>] \
-    [--initial-state <state folder>] \
-    [--load-last-state] \
+    [--plot-script <plotting command>] \
+    [--initial-state <state folder> | --load-last-state | --load-case-state] \
     [--save-on-abort] \
     [--save-on-finish] \
-    [--copy-state] \
+    [--uxsim-show-info] \ 
+    [--uxsim-randomize] \ 
+    [--uxsim-no-parallel] \ 
+    [--sumo-ignore-driving] \ 
+    [--sumo-raise-routing-error] \
+    [--copy-proj-to-out] \
+    [--copy-state-to-proj] \
     [--route-algo <algorithm>] \
     [--show] \
     [--no-daemon] \
     [--debug]
 ```
 
-# **V2Sim-UX**
-```
-v2simux -d <configuration folder> \
-    [-b <start time>] \
-    [--break-at <break time>] \
-    [-e <end time>] \
-    [-l <traffic simulation step>] \
-    [-o <output folder>] \
-    [--seed <random seed>] \
-    [--log <data to be recorded>] \
-    [--no-plg <plugins to be disabled>] \
-    [--copy] \
-    [--gen-veh <regeneration command>] \
-    [--gen-fcs <regeneration command>] \
-    [--gen-scs <regeneration command>] \
-    [--plot <plotting command>] \
-    [--initial-state <state folder>] \
-    [--load-last-state] \
-    [--save-on-abort] \
-    [--save-on-finish] \
-    [--copy-state] \
-    [--route-algo <algorithm>] \
-    [--randomize-uxsim] \
-    [--no-parallel] \
-    [--show-uxsim-info]
-```
-
-<!-- tabs:end -->
-
 ### Alternative Python Usage
 ```bash
-# V2Sim
 v2sim [--file <file>]
 v2sim [--ls-com]
-# V2Sim-UX
-v2simux [--file <file>]
-v2simux [--ls-com]
 ```
 
 ## Standalone Parameters
