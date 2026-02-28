@@ -7,15 +7,11 @@ v2sim-gen-cs \
     -d <项目文件夹> \
     [--type <scs|fcs>] \
     [--slots <充电桩数量>] \
-    [--pbuy <购买价格>] \
-    [--randomize-pbuy] \
-    [--psell <出售价格>] \
-    [--randomize-psell] \
+    [--pbuy <购买价格> | --randomize-pbuy] \
+    [--psell <出售价格> | --randomize-psell] \
     [--seed <随机种子>] \
-    [--n-cs <充电站数量>] \
-    [--cs-names <充电站名称>] \
-    [--n-bus <母线数量>] \
-    [--bus-names <使用的母线>] \
+    [--n-cs <充电站数量> | --cs-names <充电站名称>] \
+    [--n-bus <母线数量> | --bus-names <使用的母线>] \
 ```
 
 + d: 项目文件夹

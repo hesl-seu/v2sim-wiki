@@ -6,15 +6,11 @@ v2sim-gen-cs \
     -d <project folder> \
     [--type <scs|fcs>] \
     [--slots <number of charging piles>] \
-    [--pbuy <purchase price>] \
-    [--randomize-pbuy] \
-    [--psell <selling price>] \
-    [--randomize-psell] \
+    [--pbuy <purchase price> | --randomize-pbuy] \
+    [--psell <selling price> | --randomize-psell] \
     [--seed <randomization seed>] \
-    [--n-cs <number of charging stations>] \
-    [--cs-names <CS names>] \
-    [--n-bus <number of buses>] \
-    [--bus-names <buses used>] \
+    [--n-cs <number of charging stations> | --cs-names <CS names>] \
+    [--n-bus <number of buses> | --bus-names <buses used>] \
 ```
 
 + d: Project folder
