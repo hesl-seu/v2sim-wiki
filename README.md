@@ -5,6 +5,7 @@ V2Sim is an open-Source V2G simulation platform for coupled urban power and tran
 1. Power distribution network simulation, provided by an external package FPowerKit.
 2. Transportation simulation, powered by SUMO (microscopic simulation, precise) and UXsim (mesoscopic simulation, fast).
 3. EV charging and V2G discharging simulation.
+4. Parallel simulation by splitting the road network into regions.
 
 Please read in sequence as shown in the left sidebar to have a quick start. **As V2Sim is a big project, when you start up V2Sim/V2Sim-UX for the first time, it could take up to minutes before the main window pops up.**
 

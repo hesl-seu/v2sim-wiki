@@ -2,21 +2,30 @@
 
 In the article, we will inform you of downloading and editing networks. 
 
-As for downloading transportation network, only SUMO network can be downloaded. UXsim network can be converted from an existing SUMO network.
+## Download Transportation Network
+Firstly, we need to open the transportation network downloader.
 
-As for editing transportation network, SUMO network requires NetEdit, while UXsim network can be edited in V2Sim GUI.
-
-Power distribution network must be created manually and can be edited in V2Sim GUI.
-
-## Download SUMO Transportation Network
-Run the following command to open the transportation network downloader for SUMO:
+<!-- tabs:start -->
+# **Command line**
+Run the following command to open the transportation network downloader:
 ```
 v2sim-osm
 ```
+
+# **GUI**
+You can click the link "Get from OSM..." in the welcome page to open the transportation network downloader:
+
+![welcome](../imgs/0.png)
+
+<!-- tabs:end -->
+
 Your browser will be opened and a map will be displayed after running this script.
-This program is based on OpenStreetMap. Due to network restrictions, **users in China Mainland** may not able to visit OpenStreetMap.
+
+> **Note:** This program is based on OpenStreetMap. Due to network restrictions, **users in China Mainland** may not able to visit OpenStreetMap.
 
 ![alt text](../imgs/1.png)
+
+Now, select the region you want to download in the map. Here are some useful hints:
 
 + You can input a city name and click `Search` to turn to it, or you can input the latitude and longitude and click `Go to`. `Use current location` may not work due to the restriction of network and modern browser.
 + By default, the whole map shown in your screen will be downloaded. You can tick the checkbox `Select area` to only select a rectangle area. 
@@ -24,11 +33,12 @@ This program is based on OpenStreetMap. Due to network restrictions, **users in 
   - `Add Polygons` is recommended since polygons are used in EVCS and trip generation.
   - `Car-only Netowrk` is recommended since V2Sim do not simulate objects other than vehicles.
 + In the second tab, only `highway` is ticked by default. Other options are not recommended since V2Sim will not simulate their motion.
-+ Click the `Generate Scenario` button after proper configuration. The case will be generated in `cases` folder with a name of current time. V2Sim GUI will automatically open after the case is generated. It looks like the following image: <br> ![alt text](../imgs/0.png)
-+ If the generated case is not selected automatically, click the `Add project...` link, select the folder you have created, and then open it. You will see something like this: <br> ![alt text](../imgs/3.png)
++ Click the `Generate Scenario` button after proper configuration. The case will be generated in `cases` folder. 
+
+By default, two cases will be generated, one for SUMO and one for UXsim. The case folder name are in the format of `prefix_time`, like `sumo_20260101_120000` and `ux_20260101_120000`. V2Sim GUI will automatically open after generation. If the generated case is not selected automatically, click the `Add project...` link, select the folder you have created, and then open it. You will see something like this: <br> ![alt text](../imgs/3.png)
 
 ## Convert a SUMO network to a UXsim one
-In the last section, we have downloaded road network for SUMO. However, if we want to use UXsim as the transportation simulator, we need to convert the case.
+In early version, road networks are only downloaded for SUMO. However, if we want to use UXsim as the transportation simulator, we need to convert the case.
 
 1. Run the following command to open the GUI, and then click `Convert case...`:
 

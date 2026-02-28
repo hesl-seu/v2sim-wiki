@@ -1,5 +1,7 @@
 # Multi-process parallel simulation tool
 
+<details>
+<summary>This tool is not supplied in current version. The hidden information only works for the old version.</summary>
 Command:
 
 ```
@@ -22,3 +24,4 @@ v2sim-para \
     
 + Example parameters:
   - `-p 7 -d 37nodes -r results_set -c "-gen-veh '-n 5000' -gen-fcs '-pbuy 1.5 -slots 10' -gen-scs '-pbuy 1.5 -slots 10'" -n 50`
+</details>

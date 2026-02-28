@@ -10,7 +10,7 @@
         + [Generate Vehicles](usage/2_4_genveh)
     + [Simulate](usage/3_sim)
     + [Analyze Results](usage/4_results)
-    + [Compare V2Sim and V2Sim-UX](cmp)
+    + [Compare Transportation Simulators](cmp)
 + **Command Line Tools**
     + [v2sim](tools/sim_single)
     + [v2sim-osm](tools/osm)

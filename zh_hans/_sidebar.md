@@ -10,7 +10,7 @@
         + [生成车辆](zh_hans/usage/2_4_genveh)
     + [仿真](zh_hans/usage/3_sim)
     + [分析结果](zh_hans/usage/4_results)
-    + [比较V2Sim和V2Sim-UX](zh_hans/cmp)
+    + [比较不同交通仿真器](zh_hans/cmp)
 + **命令行工具**
     + [v2sim](zh_hans/tools/sim_single)
     + [v2sim-osm](zh_hans/tools/osm)

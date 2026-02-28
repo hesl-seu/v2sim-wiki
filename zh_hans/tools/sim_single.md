@@ -4,71 +4,40 @@
 
 ### 主命令
 
-<!-- tabs:start -->
-
-# **V2Sim**
 ```
-v2sim -d <配置文件夹> \
+v2sim (-d | --dir | --proj-dir <配置文件文件夹>) \
+    [-o | --out | --out-dir <输出文件夹>] \
     [-b <开始时间>] \
-    [-e <结束时间>] \
     [-l <交通仿真步长>] \
-    [-o <输出文件夹>] \
+    [-e <结束时间>] \
+    [--break-at <中断时间>] \
     [--seed <随机种子>] \
-    [--log <要记录的数据>] \
-    [--no-plg <要禁用的插件>] \
-    [--copy] \
+    [--log | --logging-items <要记录的数据>] \
+    [--no-plg | --disable-plugins <要禁用的插件>] \
     [--gen-veh <重新生成命令>] \
     [--gen-fcs <重新生成命令>] \
     [--gen-scs <重新生成命令>] \
-    [--plot <绘图命令>] \
-    [--initial-state <状态文件夹>] \
-    [--load-last-state] \
+    [--plot-script <绘图命令>] \
+    [--initial-state <状态文件夹> | --load-last-state | --load-case-state] \
     [--save-on-abort] \
     [--save-on-finish] \
-    [--copy-state] \
+    [--uxsim-show-info] \
+    [--uxsim-randomize] \
+    [--uxsim-no-parallel] \
+    [--sumo-ignore-driving] \
+    [--sumo-raise-routing-error] \
+    [--copy-proj-to-out] \
+    [--copy-state-to-proj] \
     [--route-algo <算法>] \
     [--show] \
     [--no-daemon] \
     [--debug]
 ```
 
-# **V2Sim-UX**
-```
-v2simux -d <配置文件夹> \
-    [-b <开始时间>] \
-    [--break-at <中断时间>] \
-    [-e <结束时间>] \
-    [-l <交通仿真步长>] \
-    [-o <输出文件夹>] \
-    [--seed <随机种子>] \
-    [--log <要记录的数据>] \
-    [--no-plg <要禁用的插件>] \
-    [--copy] \
-    [--gen-veh <重新生成命令>] \
-    [--gen-fcs <重新生成命令>] \
-    [--gen-scs <重新生成命令>] \
-    [--plot <绘图命令>] \
-    [--initial-state <状态文件夹>] \
-    [--load-last-state] \
-    [--save-on-abort] \
-    [--save-on-finish] \
-    [--copy-state] \
-    [--route-algo <算法>] \
-    [--randomize-uxsim] \
-    [--no-parallel] \
-    [--show-uxsim-info]
-```
-
-<!-- tabs:end -->
-
 ### 替代的 Python 用法
 ```bash
-# V2Sim
 v2sim [--file <文件>]
 v2sim [--ls-com]
-# V2Sim-UX
-v2simux [--file <文件>]
-v2simux [--ls-com]
 ```
 
 ## 独立参数
@@ -92,13 +61,16 @@ v2simux [--ls-com]
 
 - **`-o <输出文件夹>`**：输出文件夹。当前目录下的 'results' 文件夹是默认输出文件夹。
 
+- **`--break-at <中断时间>`**：当提供此参数时，仿真将在指定的中断时间结束，而不是在设定的结束时间结束。该参数用于从保存的状态恢复 UXsim 仿真。通过指定不同的中断时间和结束时间，您可以在中途暂停 UXsim 仿真。UXsim 在开始时需要一个准确的结束时间，它无法在给定的结束时间之后继续进行仿真。SUMO 不需要此参数，因为其仿真结束时间不是一个硬性限制。
+
 ### 随机化与日志记录
-- **`--seed <随机种子>`**：用于生成车辆、充电站和 SUMO 的随机种子。默认值为当前时间（纳秒）%65536。
+- **`--seed <随机种子>`**：用于生成车辆、充电站和 SUMO 的随机种子。默认值为0。
 
 - **`--log <要记录的数据>`**：要记录的数据，包括：
   - `ev`：电动汽车
   - `fcs`：快充站
   - `scs`：慢充站
+  - `gs`：加油站
   - `gen`：发电机
   - `bus`：母线
   - `line`：输电线路
@@ -125,26 +97,39 @@ v2simux [--ls-com]
 - **`--save-on-finish`**：当仿真正常完成时保存仿真状态。
 
 ### 输出与配置
-- **`--copy`**：仿真结束后将配置文件复制到输出文件夹。默认不启用。
+- **`--copy-proj-to-out`**：仿真结束后将配置文件复制到输出文件夹。默认不启用。
 
-- **`--copy-state`**：仿真结束后将状态文件复制到案例文件夹。默认不启用。
+- **`--copy-state-to-proj`**：仿真结束后将状态文件复制到案例文件夹。默认不启用。
 
-- **`--plot <命令>`**：仿真完成后用于图形绘图的命令行。
+- **`--plot-script <命令>`**：仿真完成后用于图形绘图的命令行。
 
 ### 路径规划与算法
 - **`--route-algo <算法>`**：路径规划算法。选项有：
   - `"astar"`（默认）
   - `"dijkstra"`
-  - `"CH"`（仅 V2Sim）
-  - `"CHWrapper"`（仅 V2Sim）
+  - `"CH"`（仅 SUMO）
+  - `"CHWrapper"`（仅 SUMO）
 
-## 图形仿真参数（仅 V2Sim）
+## 图形仿真参数（仅 SUMO）
 
-- **`--show`**：启用 GUI 模式。**注意**：此选项仅在 Linux 中有用。在 Windows 中，请调整 `v2sim/traffic/win_vis.py` 中的 `WINDOWS_VISUALIZE` 来更改可见性级别。
+- **`--show`**：启用 GUI 模式。**注意**：此选项仅在 Linux 中有用。在 Windows 中，请调整 `v2sim/sim/win_vis.py` 中的 `WINDOWS_VISUALIZE` 来更改可见性级别。
 
 - **`--no-daemon`**：将仿真线程与显示窗口分离。当未启用时，一旦显示窗口关闭，仿真将停止。
 
 - **`--debug`**：启用图形仿真的调试模式。当图形仿真失败时，将输出详细的错误信息。
+
+## UXsim 参数
+- **`--uxsim-show-info`**：显示 UXsim 的进度信息，而非 V2Sim 的进度信息。
+
+- **`--uxsim-randomize`**：使用由 `--seed` 指定的随机种子，对 UXsim 的交通流进行随机化处理。
+
+- **`--uxsim-no-parallel`**：即使路网已被分割成多个区域，也禁用并行仿真。分割后的区域将被视为一个整体进行处理。
+
+## SUMO 参数
+
+- **`--sumo-ignore-driving`**：如果启用，电动汽车的电池电量将仅在到达出行目的地时扣除。否则，每个仿真步长都会计算一次电量消耗。
+
+- **`--sumo-raise-routing-error`**：如果启用，当 SUMO 无法在给定位置之间找到路线时，它将引发异常并终止仿真。
 
 ## 错误处理
 
